@@ -2,6 +2,8 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask.ext.login import UserMixin
 
+from app import db
+
 
 class Role(db.Model):
     __tablename__ = 'roles'
@@ -19,7 +21,7 @@ class User(db.Model):
     name = db.Column(db.String(255))
     email = db.Column(db.String(255), nullable=False, unique=True, index=True)
     password_hash = db.Column(db.String(255))
-    created_at = db.Column(db.Datetime(), default=datetime.utcnow)
+    created_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
     def __repr__(self):
         return self.username
