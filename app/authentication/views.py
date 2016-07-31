@@ -1,8 +1,8 @@
 from flask import render_template, redirect, url_for, flash, request
-from sqlalchemy.orm.exc import NoResultFound
+from app import db
 from . import authentication
 
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from .models import User
 from flask.ext.login import (
     login_user,
@@ -30,7 +30,19 @@ def login():
 
 @authentication.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('authentication/register.html')
+    form = RegisterForm()
+    if request.method == 'POST':
+        user = User()
+        user.username = form.username.data
+        user.name = form.name.data
+        user.email = form.email.data
+        user.password = form.password.data
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
+        flash('You are registerd!')
+        return redirect(url_for('main.index'))
+    return render_template('authentication/register.html', form=form)
 
 
 @authentication.route('/logout', methods=['GET'])

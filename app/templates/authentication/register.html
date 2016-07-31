@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 {% block body %}
 {{ super() }}
-Registration template
+<form class="form-horizontal" method='post' action={{ url_for('authentication.register') }}>
+  {{ form.hidden_tag() }}
+  {{ form.username.label }} {{ form.username }}
+  {{ form.name.label }} {{ form.name }}
+  {{ form.email.label }} {{ form.email }}
+  {{ form.password.label }} {{ form.password }}
+  {{ form.password2.label }} {{ form.password2 }}
+  
+                            <p><input type="submit" value="Sign In"></p>
+</form>
 {% endblock %}
+
