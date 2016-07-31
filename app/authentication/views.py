@@ -20,6 +20,7 @@ def login():
         username = form.username.data
         user = User.query.filter_by(username=username).first()
         if user is not None and user.verify_password(password) == True:
+            login_user(user, form.remember_me.data)
             flash('Welcome to Sauce')
             return redirect(url_for('authentication.register'))
         flash('Invalid Username or Password!')
