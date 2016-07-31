@@ -13,4 +13,5 @@ class RegisterForm(Form):
 class LoginForm(Form):
     username = StringField('User Name', validators=[Required(), Length(1, 64)])
     password = PasswordField('Password', validators=[Required()])
+    remember_me = BooleanField('Keep me logged in')
     submit = SubmitField('Sign In')
