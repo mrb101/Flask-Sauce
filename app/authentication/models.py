@@ -36,3 +36,12 @@ class User(db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+class Extra(db.Model):
+    __tablename__ = 'extras'
+    id = db.Column(db.Integer, primary_key=True)
+    attr = db.Column(db.String(30))
+    string_value = db.Column(db.String(255))
+    integer_value = db.Column(db.Integer)
+    date_value = db.Column(db.DateTime())
