@@ -23,21 +23,18 @@ class DevelopmentConfig(Config):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     dev_db = os.environ.get('DEV_DATABASE_URL')
-    dev_sqlite = 'sqlite:///' + os.path.join(base_dir, 'data-dev.sqlite')
-    SQL_ALCHEMY_DATABASE_URI = dev_db or dev_sqlite
-
+    SQLALCHEMY_DATABASE_URI = dev_db
+    print SQLALCHEMY_DATABASE_URI
 
 class TestingConfig(Config):
     TESTING = True
     test_db = os.environ.get('TEST_DATABASE_URL')
-    test_sqlite = 'sqlite:///' + os.path.join(base_dir, 'data-test.sqlite')
-    SQL_ALCHEMY_DATABASE_URI = test_db or test_sqlite
+    SQL_ALCHEMY_DATABASE_URI = test_db
 
 
 class ProductionConfig(Config):
     db = os.environ.get('DATABASE_URL')
-    sqlite = 'sqlite:///' + os.path.join(base_dir, 'data.sqlite')
-    SQL_ALCHEMY_DATABASE_URI = db or sqlite
+    SQLALCHEMY_DATABASE_URI = db
 
 
 config = {
