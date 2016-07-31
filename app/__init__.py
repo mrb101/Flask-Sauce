@@ -1,13 +1,18 @@
 from flask import Flask, render_template
+
 from flask.ext.moment import Moment
 from flask.ext.mail import Mail
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager
+
 from config import config
 
 
 moment = Moment()
 mail = Mail()
 db = SQLAlchemy()
+login_manager = LoginManager()
+login_manager.login_view = 'authentication.login'
 
 from app.authentication import models
 
