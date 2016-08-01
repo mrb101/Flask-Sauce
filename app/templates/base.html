@@ -21,9 +21,11 @@
         {% include 'includes/_navbar.html' %}
             <div class="container">
             {% for message in get_flashed_messages() %}
-                  <div class="alert alert-warning">
-                        <button type="button" class="close" data-dismiss="alert"></button>
+                  <div class="alert alert-warning alert-dismissible fade in" role="alert">
                         {{ message }}
+                        <button class="pull-right" type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                        <span aria-hidden="true">&times;</span>
+                        </button>
                   </div>
             {% endfor %}
             </div>
