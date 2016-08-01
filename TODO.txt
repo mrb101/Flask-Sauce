@@ -1,0 +1,29 @@
+ADMIN:
+
+## restaurants endpoints
+GET /restaurants/ # get a list of restaurnts
+GET /restaurants/<restaurnt slug> # get a list of restaurnts
+POST /restaurants/ # adds new restaurant
+PUT /restaurant/<restaurant slug> # updates the restaurant
+
+## orders endpoints:
+GET /orders # retrive a list of all orders
+GET /orders/<order id> # retrive a specific order
+POST /orders # adds a new order
+PUT /orders/<order slug> # updates the order
+
+## orders endpoint by restaurant
+GET /restaurants/<restaurant slug>/orders # retrive a list of orders of a specific restaurant
+GET /restaurants/<restaurant slug>/orders/<order id>  # retrive a specific order of a specific restaurant
+
+
+## retrive products
+GET /products # retrive a list of products
+GET /products/<product id><product slug> # retrive a product
+POST /products/ # adds new product
+PUT /products/<product id><products slug> # updates the product
+
+## products endpoints by restaurant
+GET /restaurants/<restaurant slug>/products # retrive a list of products of a specific restaurant
+GET restaurants/<restaurant slug>/products/<product id><product slug>/ # retrive a specific product of a specific restaurant
+
