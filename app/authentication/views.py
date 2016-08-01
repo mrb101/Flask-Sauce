@@ -22,7 +22,7 @@ def login():
         if user is not None and user.verify_password(password) == True:
             login_user(user, form.remember_me.data)
             flash('Welcome to Sauce')
-            return redirect(url_for('authentication.register'))
+            return redirect(url_for('authentication.index'))
         flash('Invalid Username or Password!')
         return redirect(url_for('authentication.login'))
     return render_template('authentication/login.html', form=form)

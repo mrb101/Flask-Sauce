@@ -1,15 +1,63 @@
 {% extends 'base.html' %}
 {% block body %}
 {{ super() }}
+<div class="container">
 <form class="form-horizontal" method='post' action={{ url_for('authentication.register') }}>
-  {{ form.hidden_tag() }}
-  {{ form.username.label }} {{ form.username }}
-  {{ form.name.label }} {{ form.name }}
-  {{ form.email.label }} {{ form.email }}
-  {{ form.password.label }} {{ form.password }}
-  {{ form.password2.label }} {{ form.password2 }}
-  
-                            <p><input type="submit" value="Sign In"></p>
+<div class="container">
+    <form class="form-horizontal" role="form">
+      <div id="legend">
+        <legend class=""><h2>Registration</h2></legend>
+      </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Full Name</label>
+            <div class="col-sm-9">
+                {{ form.name }}
+                <span class="help-block">Full Name, Name, eg.: Will Smith, Tim Harry</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+              {{ form.email }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">User Name</label>
+            <div class="col-sm-9">
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              {{ form.password }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password Confirmaiton</label>
+            <div class="col-sm-9">
+              {{ form.password2 }}
+            </div>
+        </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">I accept <a href="#">terms</a>
+                    </label>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->
 </form>
+</div>
 {% endblock %}
 
